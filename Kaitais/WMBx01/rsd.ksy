@@ -135,7 +135,7 @@ seq:
     size: 20
     encoding: utf-16be
   - id: checksum
-    size: 4
+    size: 2
     
 types:
   mac_address:
