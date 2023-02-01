@@ -5,7 +5,7 @@ meta:
   endian: be
 seq:
   - id: magic
-    type: u4
+    contents: WcDl
     doc: \"WcDl" 0x5763446c
   - id: unknown
     type: u4
@@ -112,11 +112,11 @@ types:
         repeat-expr: 32
         doc: Timestamps of last download time for each subTask.
       - id: url
-        type: str
+        type: strz
         size: 236
         encoding: UTF-8
       - id: filename
-        type: str
+        type: strz
         size: 64
         encoding: UTF-8
       - id: unknown7
