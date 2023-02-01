@@ -17,7 +17,7 @@ seq:
   - id: favorite
     type: b1
   - id: mii_name
-    type: str
+    type: strz
     size: 20
     encoding: utf-16be
   - id: body_height
@@ -131,7 +131,7 @@ seq:
   - id: unknown_11
     type: b1
   - id: creator_name
-    type: str
+    type: strz
     size: 20
     encoding: utf-16be
   - id: checksum

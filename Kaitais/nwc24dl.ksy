@@ -40,10 +40,10 @@ types:
         type: u4
         doc: Low Title ID (except for the Wii Menu). Zero if empty.
       - id: next_dl
-        type: u4
+        type: timestamp
         doc: Timestamp for the next download time.
       - id: last_modified
-        type: u4
+        type: timestamp
         doc: Timestamp for last modified on server.
       - id: record_flags
         type: u1
@@ -104,10 +104,10 @@ types:
         type: u2
         doc: 0x5a0 sometimes for entries with subTasks. Might be related to download time.
       - id: dl_timestamp
-        type: u4
+        type: timestamp
         doc: Last download timestamp. Zero when download failed.
       - id: subtasktimestamps
-        type: u4
+        type: timestamp
         repeat: expr
         repeat-expr: 32
         doc: Timestamps of last download time for each subTask.
@@ -128,3 +128,20 @@ types:
         doc: Usually zero.
       - id: unknown8
         type: u2
+  timestamp:
+    seq:
+      - id: secondssince20000101
+        type: u4
+    instances:
+      year:
+        value: 2000 + (secondsince20000101 / 31536000)
+      month:
+        value: (secondsince20000101 % 31536000) / 2628000
+      day: 
+        value: ((secondsince20000101 % 31536000) % 2628000) / 86400
+      hour:
+        value: (((secondsince20000101 % 31536000) % 2628000) % 86400) / 3600
+      minute:
+        value: ((((secondsince20000101 % 31536000) % 2628000) % 86400) % 3600) / 60
+      seconds:
+        value: ((((secondsince20000101 % 31536000) % 2628000) % 86400) % 3600) % 60

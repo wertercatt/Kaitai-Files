@@ -1,5 +1,6 @@
 meta:
   id: talent
+  application: My Pokemon Ranch
   file-extension:
     - dec
     - dat
@@ -8,6 +9,10 @@ meta:
     - rsd
 seq:
   - id: unknown_header
-    size: 0x1d
+    size: 8
+  - id: nineteenzeros
+    size: 19
+  - id: threebytes
+    size: 3
   - id: celebrity_mii
     type : rsd
