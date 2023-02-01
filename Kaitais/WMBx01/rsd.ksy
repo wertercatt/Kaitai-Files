@@ -1,10 +1,7 @@
 meta:
-  id: mii
+  id: rsd
   file-extension:
-    - mii
-    - mae
-    - miigx
-    - rcd
+    - rsd
   endian: be
 seq:
   - id: invalid
@@ -137,11 +134,13 @@ seq:
     type: str
     size: 20
     encoding: utf-16be
+  - id: checksum
+    size: 4
     
 types:
   mac_address:
     seq:
-      - id: checksum
+      - id: mac_checksum
         type: u1
         doc: The checksum is found by getting the sum of the first 3 bytes of the mac address, then modulo by 256.
       - id: remaining_bytes
